@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 #import category model
 from rango.models import Category, Page
+from rango.forms import CategoryForm
 
 def index(request):
     #query database for list of all categories currently stored
@@ -37,3 +38,20 @@ def show_category(request, category_name_slug):
 
     #render response and return to client
     return render(request, 'rango/category.html', context_dict)
+
+def add_category(request):
+    form = CategoryForm()
+
+    #a HTTP post
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+
+        if form.is_valid():
+            #provided with valid form, save new category to database
+            form.save(commit=True)
+            return index(request)
+        else:
+            #supplied form contained errors, print to terminal
+            print(form.errors)
+
+    return render(request, 'rango/add_category.html', {'form':form})
