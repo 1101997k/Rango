@@ -138,4 +138,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR, ]
 
 # User authentication
-LOGIN_URL = 'rango/login/'
+LOGIN_URL = '/rango/login/'

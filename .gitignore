@@ -2,3 +2,4 @@ db.sqlite3
 *.pyc
 requirements.txt
 virtual27/
+media/profile_images/*
