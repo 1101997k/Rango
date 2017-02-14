@@ -39,6 +39,7 @@ class Page(models.Model):
 class UserProfile(models.Model):
     # links UserProfile to a User model instance
     user = models.OneToOneField(User)
+    useridthing = 1
 
     # additional attributes
     website = models.URLField(blank=True)
