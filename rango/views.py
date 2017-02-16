@@ -52,11 +52,8 @@ def index(request):
 
 def about(request):
     visitor_cookie_handler(request)
-    if request.session['visits'] == 1:
-        strTimes = 'time'
-    else:
-        strTimes = 'times'
-    context_dict = {'visits': request.session['visits'], 'times': strTimes}
+
+    context_dict = {'visits': request.session['visits']}
     return render(request, 'rango/about.html', context_dict)
 
 def show_category(request, category_name_slug):
